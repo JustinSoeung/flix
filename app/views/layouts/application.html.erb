@@ -10,6 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Movies</h1>
+    </header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+    <footer>
+      <p>
+        Copyright &copy; Flix inc. <%= Time.now.year %>
+      </p>
+    </footer>
   </body>
 </html>
