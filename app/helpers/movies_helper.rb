@@ -7,7 +7,7 @@ module MoviesHelper
         if movie.flop?
            "Flop!"
         else
-            number_to_currency(movie.total_gross, precision:0)
+            number_to_currency(number_to_human(movie.total_gross))
         end
     end
     
