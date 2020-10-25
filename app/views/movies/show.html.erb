@@ -1,6 +1,6 @@
 <section class="movie-details">
     <div class="details">
-      <h1><%= @movie.title %></h1>
+      <h1><%= link_to @movie.title, movie_path %></h1>
       <h2>
         <%= year_of(@movie) %> &bull; <%= @movie.rating %>
       </h2>
