@@ -3,6 +3,10 @@ class MoviesController < ApplicationController
         @movies = Movie.released
     end
 
+    def flops
+        @movies = Movie.flops
+    end
+
     def show
         @movie = Movie.find(params[:id])
     end
