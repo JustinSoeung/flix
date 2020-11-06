@@ -2,6 +2,8 @@ class Movie < ApplicationRecord
 
     RATINGS = %w(G PG PG-13 R NC-17)
 
+    has_many :reviews
+
     validates :title, :released_on, :duration, presence: true
 
     validates :description, length: { minimum: 25 }
