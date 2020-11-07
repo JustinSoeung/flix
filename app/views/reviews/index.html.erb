@@ -1,0 +1,9 @@
+<h1> Reviews for <%= link_to @movie.title, @movie %> </h1>
+<ul>
+    <% @reviews.each do |review| %>
+        <li>
+            <%= pluralize(review.stars, 'star') %> by <%= review.name %>:
+            <%= review.comment %>
+        </li>
+    <% end %>
+</ul>

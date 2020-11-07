@@ -1,2 +1,7 @@
 class ReviewsController < ApplicationController
-end
+    def index
+      @movie = Movie.find(params[:movie_id])
+      @reviews = @movie.reviews
+    end
+  end
+  
