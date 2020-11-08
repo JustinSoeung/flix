@@ -1,9 +1,16 @@
-<h1> Reviews for <%= link_to @movie.title, @movie %> </h1>
-<ul>
-    <% @reviews.each do |review| %>
-        <li>
-            <%= pluralize(review.stars, 'star') %> by <%= review.name %>:
-            <%= review.comment %>
-        </li>
-    <% end %>
+<ul class="reviews">
+  <% @reviews.each do |review| %>
+    <li>
+      <%= render "shared/stars", percent: review.stars_as_percent%>
+      <p>
+        <%= review.name %>
+        <span class="date">
+          <%= time_ago_in_words(review.created_at) %> ago
+        </span>
+      </p>
+      <p>
+        <%= review.comment %>
+      </p>
+    </li>
+  <% end %>
 </ul>
