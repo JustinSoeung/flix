@@ -12,5 +12,10 @@
         <%= review.comment %>
       </p>
     </li>
+    <section class="admin">
+       
+        <%= link_to "Delete", @review , class: "button",
+                                method: :delete, data: {confirm: 'Are you sure?'} %>
+    </section>
   <% end %>
 </ul>
