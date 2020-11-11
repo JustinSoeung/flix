@@ -3,7 +3,7 @@ module ReviewsHelper
         if movie.average_stars.zero?
           content_tag(:strong, "No reviews")
         else
-          pluralize(movie.average_stars, "star")
+          "*" * movie.average_stars.round
         end
       end
 end
