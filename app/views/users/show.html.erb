@@ -1,7 +1,8 @@
 <section class="user">
     <section class="user">
         <%= profile_image(@user) %>
-        <h1><%= @user.name %> </h1>
+        <h1><%= @user.username %> </h1>
+        <strong><p><%= @user.name %> </p></strong>
         <h2><%= mail_to(@user.email) %></h2>
         <h3>Member Since </h3>
         <p>
