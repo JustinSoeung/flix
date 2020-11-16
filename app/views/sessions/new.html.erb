@@ -3,10 +3,10 @@
 <%= form_with(url: session_path, local: true) do |f| %>
 
 <%= f.label :email %>
-<%= f.email_field :email, autofocus: true %>
+<%= f.email_field :email, autofocus: true, required: true %>
 
 <%= f.label :password %>
-<%= f.password_field :password %>
+<%= f.password_field :password, required: true %>
 
 <p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
 
