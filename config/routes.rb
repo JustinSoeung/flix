@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
  
+  resources :favorites
   root "movies#index"
   get "flops" => "movies#flops"
   resources :movies do
