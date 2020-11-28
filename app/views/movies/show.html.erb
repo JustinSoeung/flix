@@ -28,6 +28,14 @@
           <th>Total Gross:</th>
           <td><%= total_gross(@movie) %></td>
         </tr>
+      <% if current_user %>
+        <div class="faves">
+          <%= button_to "♥️ Favorite" , movie_favorites_path(@movie) %>
+          <div class="count">
+            <%= @fans.size %>
+          </div>
+        </div>
+      <% end %>
       </table>
 
        <%= render "reviews/form"%>  
