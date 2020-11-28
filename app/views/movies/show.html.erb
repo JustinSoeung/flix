@@ -30,7 +30,7 @@
         </tr>
       <% if current_user %>
         <div class="faves">
-          <%= button_to "♥️ Favorite" , movie_favorites_path(@movie) %>
+          <%= fav_or_unfav(@movie,@favorite) %>
           <div class="count">
             <%= @fans.size %>
           </div>
