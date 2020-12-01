@@ -1,0 +1,7 @@
+<h1> All <%= @genre.name %> movies:</h1>
+
+    <ul>
+        <% @movie.each do |m| %>
+            <h2><li><%= link_to m.title, m %></li></h2>
+        <% end %>
+    </ul>
