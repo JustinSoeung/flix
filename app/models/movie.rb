@@ -26,6 +26,9 @@ class Movie < ApplicationRecord
         where("released_on < ?", Time.now).order("released_on desc")
     end
 
+    scope :released, -> { where("released_on < ?", Time.now).order("released_on desc") }
+
+
     def flop?
         total_gross.blank? || total_gross < 225_000_000
     end
