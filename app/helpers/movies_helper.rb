@@ -4,11 +4,8 @@ module MoviesHelper
     end
 
     def total_gross(movie)
-        if movie.flop?
-           "Flop!"
-        else
             number_to_currency(number_to_human(movie.total_gross))
-        end
+        
     end
     
     def year_of(movie)
