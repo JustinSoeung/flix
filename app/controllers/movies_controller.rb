@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
     end
 
     def flops
-        @movies = Movie.flops
+        @movies = Movie.flops(10)
     end
 
     def show
