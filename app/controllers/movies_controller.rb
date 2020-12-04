@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
     before_action :require_admin, except: [:index, :show]
     
     def index
-        @movies = Movie.released
+        @movies = Movie.released.grossed_more_than(299999999)
     end
 
     def flops
