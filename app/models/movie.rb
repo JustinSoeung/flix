@@ -29,15 +29,14 @@ class Movie < ApplicationRecord
     scope :flops, ->(max=1) { released.where("total_gross < ?", 225_000_000).order(total_gross: :asc).limit(max)}
     scope :grossed_less_than, ->(max) {where("total_gross <= ?", max)}
     scope :grossed_more_than, ->(max) {where("total_gross >= ?", max)}
+    scope :hits, ->(max=5) {released.where("total_gross >= ?", 300_000_000).order("total_gross desc").limit(max)}
 
 
     def flop?
         total_gross.blank? || total_gross < 225_000_000
     end
 
-    def self.hits
-        where("total_gross >= ?", 300_000_000).order("total_gross desc")
-    end
+
 
 
 
