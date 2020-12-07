@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-
+    before_save :set_slug
     RATINGS = %w(G PG PG-13 R NC-17)
 
     has_many :reviews, -> {order(created_at: :desc)}, dependent: :destroy
@@ -9,7 +9,9 @@ class Movie < ApplicationRecord
     has_many :characterizations, dependent: :destroy
     has_many :genres, through: :characterizations
 
-    validates :title, :released_on, :duration, presence: true
+    validates :title, presence: true, uniqueness: true
+
+    validates :released_on, :duration, presence: true
 
     validates :description, length: { minimum: 25 }
 
@@ -36,10 +38,6 @@ class Movie < ApplicationRecord
         total_gross.blank? || total_gross < 225_000_000
     end
 
-
-
-
-
     def self.recently_added
         order("created_at desc").limit(3)
     end
@@ -51,4 +49,17 @@ class Movie < ApplicationRecord
     def average_stars_as_percent
         (self.average_stars / 5.0) * 100
     end
+    def to_param
+        slug
+    end
+private
+
+    def set_slug
+        self.slug = title.parameterize
+    end
+    
+
+    
+
+
 end
