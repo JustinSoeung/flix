@@ -1,6 +1,13 @@
 <section class="movie-details">
     <div class="image">
     <%= image_tag @movie.image_file_name %>
+        <% if current_user %>
+      <div class="faves">
+        <%= fave_or_unfave_button(@movie,@favorite) %>
+        <div class="count">
+          <%= @fans.size %>
+        </div>
+      </div>
     </div>
     <div class="details">
       <h1><%= link_to @movie.title, @movie %></h1>
@@ -28,13 +35,7 @@
           <th>Total Gross:</th>
           <td><%= total_gross(@movie) %></td>
         </tr>
-      <% if current_user %>
-        <div class="faves">
-          <%= fave_or_unfave_button(@movie,@favorite) %>
-          <div class="count">
-            <%= @fans.size %>
-          </div>
-        </div>
+
       <% end %>
       </table>
 
