@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
- 
-  
   resources :genres
   root "movies#index"
   # get "flops" => "movies#flops"
