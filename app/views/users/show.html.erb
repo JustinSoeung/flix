@@ -14,7 +14,7 @@
             <h3>Favorite Movies</h3>
             <div class="favorite-movies">
             <% @favorite_movies.each do |movie| %>
-                <%= link_to image_tag(movie.image_file_name), movie %>
+                <%= link_to main_image(movie), movie %>
             <% end %>
             </div>
         <% end %>
@@ -38,7 +38,7 @@
                 <div class="review">
                     <div class="details">
                     <div class="image">
-                        <%= link_to image_tag(review.movie.image_file_name, lenght:100, width: 120), review.movie %>
+                        <%= link_to main_image(review.movie),review.movie %>
                     </div>
                     <span class="title">
                         <%= link_to review.movie.title, review.movie %>

@@ -12,7 +12,14 @@ module MoviesHelper
         
     end
     
-
+    def main_image(movie)
+        if movie.main_image.attached?
+            image_tag movie.main_image.variant(resize_to_limit: [150,150])
+        else
+            image_tag "placeholder.png"
+        end
+    end
+    
     def total_gross(movie)
         if movie.flop?
            "Flop!"
